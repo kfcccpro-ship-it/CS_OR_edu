@@ -1,0 +1,218 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>MG 인재키움 찾아가는 교육</title>
+<style>
+:root{--y:#FEE500;--k:#191919;--bg:#eef1f5;--line:#dfe3e8;--muted:#6f7680;--green:#087a46;--greenbg:#eaf7f0;--red:#b42318;--redbg:#fff1ef;--blue:#155eef;--card:#fff}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:#111;font-family:Pretendard,"Noto Sans KR","Apple SD Gothic Neo",Arial,sans-serif;font-size:18px;line-height:1.55}button,input,select{font:inherit}
+.wrap{max-width:1380px;margin:0 auto;padding:26px}.card,.section{background:#fff;border:1px solid var(--line);border-radius:22px;padding:28px;margin:0 0 22px}.hero{background:linear-gradient(135deg,#fff7b1,#FEE500);border:0;padding:34px 38px}.hero h1{font-size:44px;line-height:1.18;margin:0 0 12px;font-weight:950}.hero p{font-size:21px;margin:0;color:#403700}.hero-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:24px}.hero-chip{background:rgba(255,255,255,.85);border-radius:18px;padding:17px 19px}.hero-chip b{display:block;font-size:22px}.hero-chip span{font-size:16px;color:#555}
+.cost-alert{display:flex;justify-content:space-between;align-items:center;gap:16px;margin-top:18px;background:#191919;color:#fff;border-radius:17px;padding:16px 20px}.cost-alert strong{font-size:21px;color:#FEE500}.cost-alert span{font-size:16px}.cost-alert button{border:0;background:#FEE500;border-radius:12px;padding:11px 16px;font-weight:950;cursor:pointer}
+.mini-flow{display:flex;gap:8px;flex-wrap:wrap;margin-top:16px}.flow-chip{border:1px solid #d9dce1;background:#fff;border-radius:999px;padding:9px 14px;font-weight:900;cursor:pointer}.flow-chip:hover{background:#fff9c9}
+h2{font-size:31px;line-height:1.25;margin:0 0 9px}.sub{margin:0 0 18px;color:var(--muted);font-size:18px}.badge{display:inline-flex;border-radius:999px;padding:6px 11px;font-size:14px;font-weight:950;background:#fff7b1}.section-head{display:flex;justify-content:space-between;gap:18px;align-items:flex-start}
+.cat-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}.cat{border:2px solid #e6e8eb;border-radius:18px;padding:22px;background:#fff;cursor:pointer}.cat:hover,.cat.on{border-color:#ddc800;background:#fffdef}.cat h3{font-size:28px;margin:0 0 5px}.cat p{margin:0;color:#666}
+.programs{display:none;margin-top:16px;grid-template-columns:1fr 1fr;gap:16px}.programs.show{display:grid}.program{border:2px solid #e6e8eb;border-radius:18px;padding:20px;background:#fff}.program.on{border-color:#d3bf00;background:#fffdf1}.program-top{display:flex;justify-content:space-between;gap:12px;align-items:center}.program h3{font-size:25px;margin:0}.program ul{padding-left:22px;margin:11px 0 15px}.program li{margin:3px 0}.btns{display:flex;gap:9px;flex-wrap:wrap}.btn{border:0;border-radius:12px;padding:11px 16px;font-weight:950;cursor:pointer}.primary{background:#FEE500}.dark{background:#191919;color:#fff}.white{background:#fff;border:1px solid #d8dce1}.small{padding:8px 11px;font-size:15px}.details{display:none;margin-top:13px;border-top:1px solid #e5e7eb;padding-top:13px}.details.show{display:block}.selected{display:none;background:#fffbea;border:2px solid #d8c400}.selected.show{display:block}.course-title{display:flex;gap:14px;align-items:center;flex-wrap:wrap}.course-title strong{font-size:34px}.code{background:#191919;color:#fff;border-radius:12px;padding:8px 13px;font-weight:950;font-size:22px}.facts{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:15px}.fact{background:#fff;border:1px solid #ead868;border-radius:13px;padding:13px}.fact b{display:block;font-size:13px;color:#746600}.fact span{font-size:18px;font-weight:900}.contact{margin-top:14px;background:#191919;color:#fff;border-radius:16px;padding:16px 18px;display:grid;grid-template-columns:1.2fr 1fr 1fr;gap:12px}.contact b{display:block;color:#FEE500;font-size:13px}.contact strong{font-size:19px}.contact div+div{border-left:1px solid #444;padding-left:14px}
+.consult{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}.consult button{border:1px solid #d2b900;background:#fff;border-radius:999px;padding:8px 12px;font-weight:900}
+.notice{border-radius:14px;padding:14px 16px;margin:12px 0}.notice.yellow{background:#fff8bf}.notice.good{background:var(--greenbg);color:#075f39}.notice.red{background:var(--redbg);color:#7e1c12}.notice.gray{background:#f4f5f7;color:#4b5159}
+.hidden{display:none!important}.head-wrap{display:grid;grid-template-columns:.8fr 1.2fr;gap:14px}.counter,.groupbox{border:1px solid var(--line);border-radius:17px;padding:18px;background:#fbfbfc}.field label{display:block;font-weight:900;margin-bottom:5px}.field input,.field select{width:100%;border:1px solid #d3d7de;border-radius:12px;padding:12px;background:#fff}.big{font-size:42px;font-weight:950}.meter{height:12px;background:#e9ecef;border-radius:99px;overflow:hidden;margin-top:8px}.meter>div{height:100%;background:#FEE500;width:0}.mode-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}.mode{border:2px solid #e1e4e8;background:#fff;border-radius:15px;padding:15px;text-align:left;cursor:pointer}.mode.on{border-color:#d2bd00;background:#fffbea}.mode b{display:block;font-size:20px}.mode small{color:#666}.panel{display:none;margin-top:12px}.panel.show{display:block}.grid3{display:grid;grid-template-columns:1.2fr 1fr 1fr;gap:9px}.member{display:grid;grid-template-columns:1fr 130px 44px;gap:8px;margin-top:8px}.member button{border:0;border-radius:10px}.lock{background:#f1f3f5;color:#666;border-radius:13px;padding:15px;font-weight:900}.custom{margin-top:14px}.custom h4{margin:15px 0 7px;font-size:18px}.chips{display:flex;flex-wrap:wrap;gap:8px}.chip{border:1px solid #dadddf;border-radius:999px;padding:8px 12px;background:#fff;cursor:pointer;font-weight:850}.chip.on{background:#191919;color:#fff;border-color:#191919}
+.cost-section{border:3px solid #191919}.cost-title{display:flex;justify-content:space-between;gap:16px;align-items:center}.cost-title h2{font-size:35px}.cost-warning{background:#fff1ef;border:1px solid #ffb4ab;border-radius:16px;padding:16px 18px;margin:14px 0}.cost-warning strong{display:block;font-size:23px;color:#b42318}.cost-warning span{font-size:16px}.cost-grid{display:grid;grid-template-columns:1fr 1fr;gap:15px}.cost-box{border:1px solid #dfe2e6;border-radius:17px;padding:18px}.cost-box h3{font-size:23px;margin:0 0 12px}.cost-fields{display:grid;grid-template-columns:1fr 1fr;gap:9px}.summary-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:15px}.sum{background:#f5f6f7;border-radius:15px;padding:15px}.sum b{display:block;font-size:13px;color:#666}.sum strong{font-size:24px}.sum.total{background:#191919;color:#fff}.sum.total b{color:#FEE500}.labor-guide{margin-top:12px;background:#fff7bd;border-radius:14px;padding:15px}.labor-guide ul{margin:8px 0 0;padding-left:22px}.labor-guide li{margin:5px 0}.law{font-size:14px;color:#666;margin-top:8px}
+.join-list{display:grid;gap:9px}.join-item{border:1px solid #e1e4e8;border-radius:14px;padding:14px;display:grid;grid-template-columns:1.5fr .8fr .6fr auto;gap:10px;align-items:center}.join-item strong{font-size:19px}.tag{display:inline-flex;background:#f0f2f4;border-radius:99px;padding:4px 8px;font-size:13px;margin:3px 3px 0 0}
+.checks{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}.check{border:1px solid #e0e3e8;border-radius:14px;padding:15px}.check b{font-size:18px}.check a{display:inline-block;margin-top:8px;color:#155eef;font-weight:900;text-decoration:none}.apply-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}.report{border:1px solid #ccc;background:#fff;padding:28px}.report table{width:100%;border-collapse:collapse}.report th,.report td{border:1px solid #aaa;padding:9px;text-align:left}.report th{background:#f4f4f4}
+details.faq{border-top:1px solid #e7e9ed;padding:13px 0}details.faq summary{font-weight:900;cursor:pointer}.floating{position:fixed;right:22px;bottom:22px;z-index:30}.floating button{background:#FEE500;border:0;border-radius:999px;padding:13px 18px;font-weight:950;box-shadow:0 5px 25px #9995}.floatbox{display:none;position:absolute;right:0;bottom:58px;width:330px;background:#191919;color:#fff;border-radius:16px;padding:16px}.floatbox.show{display:block}.floatbox b{color:#FEE500}
+.modalbg{display:none;position:fixed;inset:0;background:#0008;z-index:50;align-items:center;justify-content:center}.modalbg.show{display:flex}.modal{max-width:700px;width:calc(100% - 40px);background:#fff;border-radius:20px;padding:25px}.modal h3{font-size:28px;margin:0 0 10px}
+@media(max-width:950px){.hero-grid,.cat-grid,.programs,.head-wrap,.cost-grid,.summary-grid,.checks,.apply-grid,.facts,.contact,.grid3{grid-template-columns:1fr}.contact div+div{border-left:0;border-top:1px solid #444;padding-left:0;padding-top:10px}.join-item{grid-template-columns:1fr}.wrap{padding:12px}.hero h1{font-size:34px}}
+@media print{body{background:#fff}.hero,.section,.card,.floating,.no-print{display:none!important}#reportSection{display:block!important;border:0;padding:0}.report{border:0}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<section class="hero">
+  <h1>강사가 우리 금고로 찾아옵니다</h1>
+  <p>고객응대 또는 조직활성화 교육을 고르고, 30명을 구성한 뒤 실제 총비용까지 확인해 보세요.</p>
+  <div class="hero-grid">
+    <div class="hero-chip"><b>찾아가는 교육</b><span>금고 강당·회의장 또는 인근 현장 활용</span></div>
+    <div class="hero-chip"><b>교육비 90% 이상 지원</b><span>지원요건·지원한도·수료조건 충족 시</span></div>
+    <div class="hero-chip"><b>총 6시간</b><span>주말 1일 또는 업무 후 2시간×3일</span></div>
+  </div>
+  <div class="cost-alert">
+    <div><strong>중요: 환급 후 교육비가 실제 총비용은 아닙니다.</strong><br><span>시간외·휴일근로 인건비와 교통·식비·장소비 등도 함께 보아야 합니다.</span></div>
+    <button onclick="go('cost')">총비용부터 보기</button>
+  </div>
+  <div class="mini-flow">
+    <button class="flow-chip" onclick="showGuide('course')">① 과정 선택</button>
+    <button class="flow-chip" onclick="showGuide('group')">② 30명 구성</button>
+    <button class="flow-chip" onclick="showGuide('cost')">③ 총비용 확인</button>
+    <button class="flow-chip" onclick="showGuide('apply')">④ 신청·환급</button>
+  </div>
+</section>
+
+<section class="section" id="program">
+  <div class="section-head"><div><h2>1. 필요한 교육부터 고르세요</h2><p class="sub">회사명은 보이지 않습니다. 교육내용을 보고 선택합니다.</p></div><span class="badge">CS · 조직활성화</span></div>
+  <div class="cat-grid">
+    <button class="cat" data-cat="cs"><h3>고객응대</h3><p>민원 · 창구 · 전화 · 클레임 대응</p></button>
+    <button class="cat" data-cat="org"><h3>조직활성화</h3><p>소통 · 협업 · 세대이해 · 팀워크</p></button>
+  </div>
+  <div id="csPrograms" class="programs"></div>
+  <div id="orgPrograms" class="programs"></div>
+</section>
+
+<section id="selected" class="section selected">
+  <div class="course-title"><strong id="selName"></strong><span id="selCode" class="code"></span></div>
+  <div class="facts">
+    <div class="fact"><b>운영형태</b><span>찾아가는 교육</span></div>
+    <div class="fact"><b>총 교육시간</b><span>6시간</span></div>
+    <div class="fact"><b>개설기준</b><span>30명 이상</span></div>
+    <div class="fact"><b>지원안내</b><span>교육비 90% 이상</span></div>
+  </div>
+  <div class="contact">
+    <div><b>선택 프로그램 전담상담</b><strong id="contactCourse"></strong></div>
+    <div><b>담당자</b><strong id="manager">10월 협의 후 확정</strong></div>
+    <div><b>유선 연락</b><strong id="phone">10월 협의 후 확정</strong></div>
+  </div>
+  <div class="consult"><button onclick="consult('과정내용')">과정내용</button><button onclick="consult('개설·일정')">개설·일정</button><button onclick="consult('비용')">비용</button><button onclick="consult('환급·행정')">환급·행정</button></div>
+  <div id="custom" class="custom"></div>
+</section>
+
+<section id="group" class="section hidden">
+  <div class="section-head"><div><h2>2. 30명을 구성하세요</h2><p class="sub">30명 미만이면 협의회 단위 또는 인근 금고 공동구성 중 직접 선택합니다.</p></div><span id="groupBadge" class="badge">개설기준 30명</span></div>
+  <div class="head-wrap">
+    <div class="counter">
+      <div class="field"><label>과정 대표금고</label><input id="mgName" placeholder="예: ○○새마을금고"></div>
+      <div class="field" style="margin-top:10px"><label>우리 금고 예상인원</label><input id="own" type="number" min="1" value="10"></div>
+      <div style="margin-top:13px"><span id="total" class="big">10명</span><div class="meter"><div id="bar"></div></div><div id="need"></div></div>
+    </div>
+    <div class="groupbox">
+      <div id="groupLock" class="lock hidden">우리 금고만으로 30명 이상입니다. 공동구성 입력은 비활성화됩니다.</div>
+      <div id="groupBody">
+        <div class="mode-grid">
+          <button class="mode" data-mode="council"><b>협의회 단위</b><small>권장 · ○○협의회 소속 금고와 구성</small></button>
+          <button class="mode" data-mode="nearby"><b>인근 금고 공동</b><small>협의회와 무관하게 함께할 금고 구성</small></button>
+        </div>
+        <div id="councilPanel" class="panel">
+          <div class="grid3">
+            <div class="field"><label>협의회명</label><input id="councilName" placeholder="예: ○○협의회"></div>
+            <div class="field"><label>협의회 담당자</label><input id="councilManager"></div>
+            <div class="field"><label>연락처</label><input id="councilPhone" placeholder="010-0000-0000"></div>
+          </div>
+          <div id="councilMembers"></div><button id="addCouncil" class="btn white small" style="margin-top:8px">+ 협의회 소속 금고 추가</button>
+        </div>
+        <div id="nearbyPanel" class="panel">
+          <div id="nearbyMembers"></div><button id="addNearby" class="btn white small" style="margin-top:8px">+ 참여금고 추가</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div id="groupMsg" class="notice yellow"></div>
+  <div class="btns"><button id="saveSession" class="btn primary" disabled>이 조건으로 참여 회차 만들기</button><button id="toCost" class="btn dark" disabled onclick="go('cost')">총비용 계산하기</button></div>
+</section>
+
+<section id="cost" class="section cost-section">
+  <div class="cost-title"><div><h2>3. 결재 전, 실제 총비용을 계산하세요</h2><p class="sub">교육비뿐 아니라 직원의 교육시간에 따른 인건비와 기타 비용을 포함합니다.</p></div><span class="badge">핵심 확인</span></div>
+  <div class="cost-warning"><strong>“교육비 150만원”만 보고 결재하면 실제 부담을 놓칠 수 있습니다.</strong><span>선납 교육비에서 지원금을 뺀 금액에, 시간외·휴일근로 인건비와 교통·식비·장소비 등 실제 발생비용을 더해 보세요.</span></div>
+  <div class="cost-grid">
+    <div class="cost-box">
+      <h3>① 교육비</h3>
+      <div class="cost-fields">
+        <div class="field"><label>우리 금고 참여인원</label><input id="costPeople" type="number" min="1" value="10"></div>
+        <div class="field"><label>1인 교육비</label><input id="unitFee" type="number" min="0" placeholder="견적 확정 후 입력"></div>
+        <div class="field"><label>예상 지원율(%)</label><input id="supportRate" type="number" min="0" max="100" value="95"></div>
+        <div class="field"><label>지원한도 조정액(선택)</label><input id="supportCap" type="number" min="0" placeholder="미입력 시 비율 적용"></div>
+      </div>
+      <div class="notice gray">훈련비는 금고가 먼저 납부합니다. 실제 지원액은 지원대상·잔여한도·수료·증빙 등에 따라 달라질 수 있습니다.</div>
+    </div>
+    <div class="cost-box">
+      <h3>② 교육시간 인건비</h3>
+      <div class="field"><label>운영 방식</label><select id="schedule"><option value="after">업무 후 2시간 × 3일</option><option value="weekend">주말 1일 6시간</option></select></div>
+      <div class="cost-fields" style="margin-top:9px">
+        <div class="field"><label>1인 통상시급</label><input id="hourly" type="number" min="0" placeholder="금고에서 입력"></div>
+        <div class="field"><label>시산 가산배수</label><input id="multiplier" type="number" step=".1" min="1" value="1.5"></div>
+      </div>
+      <div id="laborText" class="labor-guide"></div>
+    </div>
+  </div>
+  <div class="cost-box" style="margin-top:15px">
+    <h3>③ 기타 실제 비용</h3>
+    <div class="cost-fields">
+      <div class="field"><label>교통·이동비</label><input id="travel" type="number" min="0" value="0"></div>
+      <div class="field"><label>식비·다과 등 자체부담</label><input id="meal" type="number" min="0" value="0"></div>
+      <div class="field"><label>장소·시설비</label><input id="venueCost" type="number" min="0" value="0"></div>
+      <div class="field"><label>대체인력·기타 비용</label><input id="other" type="number" min="0" value="0"></div>
+    </div>
+  </div>
+  <div class="summary-grid">
+    <div class="sum"><b>선납 교육비</b><strong id="gross">0원</strong></div>
+    <div class="sum"><b>예상 지원액</b><strong id="support">0원</strong></div>
+    <div class="sum"><b>예상 인건비</b><strong id="labor">0원</strong></div>
+    <div class="sum total"><b>지원 후 예상 총 실비</b><strong id="realTotal">0원</strong></div>
+  </div>
+  <div class="notice red"><b>노무 확인 필수</b><br>업무 종료 후 2시간×3일 과정은 교육시간이 근로시간이고 소정근로시간을 초과하는 경우 연장근로수당 검토가 필요합니다. 주말 1일 과정은 해당일이 휴일이거나 주 40시간을 초과하는 등 실제 근무편성에 따라 휴일·연장근로수당 검토가 필요합니다. 상시 5인 이상 사업장은 근로기준법 제56조의 연장·휴일근로 가산기준을 확인해야 합니다.</div>
+  <details class="faq"><summary>법적 기준을 간단히 보기</summary><div class="notice gray">근로기준법 제50조는 1주 40시간·1일 8시간의 근로시간 기준을 두고 있고, 제56조는 연장근로 및 8시간 이내 휴일근로에 통상임금의 50% 이상 가산을 규정합니다. 제11조에 따라 법 적용범위가 사업장 규모에 따라 달라질 수 있으므로, 실제 수당은 각 금고의 상시근로자 수·근로계약·취업규칙·근무편성·교육 참여방식에 따라 확인해야 합니다.</div></details>
+</section>
+
+<section id="join" class="section hidden">
+  <h2>이미 만들어진 과정에 참여하기</h2><p class="sub">참여금고는 과정·교육의도만 확인하고 자기 금고 인원과 담당자만 입력합니다.</p><div id="joinList" class="join-list"></div>
+</section>
+
+<section id="elig" class="section hidden">
+  <h2>4. 신청 전에 3가지만 확인하세요</h2>
+  <div class="checks">
+    <div class="check"><b>지원대상·잔여한도</b><br><span>우리 금고가 대상인지, 올해 지원한도가 남았는지 확인합니다.</span><br><a href="https://www.work24.go.kr/" target="_blank">고용24에서 확인</a></div>
+    <div class="check"><b>기업회원·환급계좌</b><br><span>고용24 기업회원과 사업주 계좌등록 상태를 확인합니다.</span><br><a href="https://www.work24.go.kr/" target="_blank">고용24 열기</a></div>
+    <div class="check"><b>승인과정</b><br><span>최종 과정명·과정번호·승인상태를 전담담당자와 확인합니다.</span><br><a href="https://www.hrd4u.or.kr/" target="_blank">HRD4U 열기</a></div>
+  </div>
+  <div class="btns" style="margin-top:14px"><button class="btn dark" onclick="go('apply')">신청 예행연습으로</button></div>
+</section>
+
+<section id="apply" class="section hidden">
+  <h2>5. 마지막으로 신청을 연습해 보세요</h2><p class="sub">앞에서 고른 과정·인원·비용을 바탕으로 결재보고 초안을 만듭니다.</p>
+  <div class="apply-grid">
+    <div class="field"><label>희망 교육일</label><input id="date" type="date"></div>
+    <div class="field"><label>희망 장소</label><input id="place" placeholder="예: 우리 금고 강당"></div>
+    <div class="field"><label>담당자</label><input id="appManager"></div>
+    <div class="field"><label>연락처</label><input id="appPhone" placeholder="010-0000-0000"></div>
+  </div>
+  <div class="btns" style="margin-top:14px"><button class="btn primary" onclick="makeReport()">결재권자용 검토보고 만들기</button></div>
+</section>
+
+<section id="faq" class="section">
+  <h2>궁금한 것만 눌러보세요</h2>
+  <details class="faq"><summary>30명이 안 되면 어떻게 하나요?</summary><div>협의회 단위 또는 인근 금고 공동구성을 선택할 수 있습니다. 협의회 단위는 협의회명·담당자와 참여 금고별 예상인원을 등록합니다.</div></details>
+  <details class="faq"><summary>교육비의 90~95%만 부담하면 끝인가요?</summary><div>아닙니다. 지원 후 교육비 외에도 교육시간 인건비, 시간외·휴일근로 관련 비용, 이동·식비·장소비 등 실제 비용이 생길 수 있으므로 총비용으로 판단해야 합니다.</div></details>
+  <details class="faq"><summary>프로그램 담당자에게 바로 문의할 수 있나요?</summary><div>프로그램을 선택하면 해당 과정의 전담 담당자와 유선 연락처가 화면 상단과 우측 하단 상담버튼에 표시됩니다.</div></details>
+</section>
+
+<section id="reportSection" class="section hidden"><div id="report" class="report"></div><div class="btns no-print" style="margin-top:12px"><button class="btn dark" onclick="window.print()">인쇄 / PDF 저장</button></div></section>
+</div>
+
+<div class="floating"><div id="floatbox" class="floatbox"><b id="floatCourse">프로그램 선택 전</b><div id="floatContact" style="margin-top:6px">프로그램을 선택하면 전담상담 정보가 표시됩니다.</div><div class="consult"><button onclick="consult('과정내용')">과정</button><button onclick="consult('비용')">비용</button><button onclick="consult('환급·행정')">환급</button></div></div><button onclick="document.getElementById('floatbox').classList.toggle('show')">☎ 프로그램 상담</button></div>
+<div id="modalbg" class="modalbg" onclick="if(event.target===this)this.classList.remove('show')"><div class="modal"><h3 id="modalTitle"></h3><div id="modalBody"></div><div class="btns" style="margin-top:14px"><button class="btn dark" onclick="document.getElementById('modalbg').classList.remove('show')">닫기</button></div></div></div>
+
+<script>
+var MIN=30, selected=null, category=null, mode=null, nearby=[], council=[], custom={}, sessions=[];
+var courses={
+"CS-A101":{name:"고객응대 A",cat:"cs",title:"금융 현장 고객접점 집중형",bul:["창구·전화·민원 응대","상황별 고객응대 정리","현장 적용 중심"],detail:["고객접점 서비스 품질","민원 초기응대","상황별 응대 원칙"],custom:{focus:["친절·응대 기본","민원 초기대응","전화응대","반복·고난도 민원"],aud:["신입·저연차","창구직원","전 직원","책임자 포함"],pain:["직원별 응대 편차","반복민원","설명·안내 어려움","감정소진"],method:["사례설명","강의·실습 균형","롤플레잉 강화"],out:["공통 응대문구","민원 대응단계","현장 체크리스트"]}},
+"CS-B102":{name:"고객응대 B",cat:"cs",title:"공감·응대·클레임 실습형",bul:["고객감정 이해","롤플레잉·사례 워크숍","고난도 클레임 대응"],detail:["고객 불만의 심리","창구 응대 릴레이 롤플레잉","불만 유형별 소그룹 워크숍"],custom:{focus:["공감·경청","민원 초기대응","반복·고난도 민원","감정노동 회복"],aud:["창구직원","신입·경력 혼합","전 직원","책임자 포함"],pain:["폭언·고난도 상황","에스컬레이션 판단","직원별 응대 편차","감정소진"],method:["롤플레잉 강화","팀별 워크숍 강화","강의·실습 균형"],out:["민원 대응단계","에스컬레이션 기준","회복 체크리스트"]}},
+"ORG-A201":{name:"조직활성화 A",cat:"org",title:"팀워크·협업 집중형",bul:["직원 간 소통","팀워크·협업","현장 적용 활동"],detail:["협업 방식 점검","팀 소통 활동","실행 약속 만들기"],custom:{focus:["직원 간 소통","팀워크·협업","갈등관리","변화 적응"],aud:["신입·경력 혼합","직급 혼합","부서 혼합","동일업무 중심"],pain:["부서 간 협업","회의 참여","갈등 회피","신규직원 적응"],method:["게임·활동","사례토론","팀 규칙 만들기"],out:["소통 규칙","협업 약속","팀 실행계획"]}},
+"ORG-B202":{name:"조직활성화 B",cat:"org",title:"심리적 안전감·소통 실습형",bul:["심리적 안전감","세대·직급 이해","참여형 실습"],detail:["팀 건강도 점검","행동유형 기반 소통","세대·직급 차이 이해"],custom:{focus:["심리적 안전감","세대·직급 이해","갈등관리","팀워크·협업"],aud:["신입·경력 혼합","직급 혼합","부서 혼합"],pain:["세대차","갈등 회피","회의 참여","변화 피로"],method:["진단","게임·활동","사례토론","팀 규칙 만들기"],out:["소통 규칙","갈등 대응원칙","팀 실행계획"]}}
+};
+function el(id){return document.getElementById(id)}function won(n){return Math.round(n||0).toLocaleString()+"원"}function go(id){var x=el(id);if(x){x.classList.remove("hidden");x.scrollIntoView({behavior:"smooth",block:"start"})}}
+function showGuide(k){var m={course:["과정 선택","고객응대 또는 조직활성화에서 필요한 교육내용을 먼저 봅니다."],group:["30명 구성","한 금고가 30명 미만이면 협의회 단위 또는 인근 금고 공동구성이 가능합니다."],cost:["총비용 확인","환급 후 교육비 외에 시간외·휴일근로 인건비와 기타 비용까지 합산합니다."],apply:["신청·환급","과정·인원·비용을 확인한 뒤 금고별로 신청·결제·환급 절차를 진행합니다."]};el("modalTitle").textContent=m[k][0];el("modalBody").textContent=m[k][1];el("modalbg").classList.add("show")}
+document.querySelectorAll("[data-cat]").forEach(function(b){b.onclick=function(){category=this.dataset.cat;document.querySelectorAll(".cat").forEach(function(x){x.classList.toggle("on",x===b)});renderPrograms()}});
+function renderPrograms(){["cs","org"].forEach(function(cat){var box=el(cat+"Programs");box.innerHTML="";box.classList.toggle("show",category===cat);Object.keys(courses).forEach(function(id){var c=courses[id];if(c.cat!==cat)return;var d=document.createElement("div");d.className="program";d.innerHTML='<div class="program-top"><h3>'+c.name+'</h3><span class="badge">30명</span></div><div style="font-weight:850;margin-top:4px">'+c.title+'</div><ul>'+c.bul.map(function(x){return "<li>"+x+"</li>"}).join("")+'</ul><div class="btns"><button class="btn white small detailBtn">상세보기</button><button class="btn primary small pickBtn">이 프로그램 선택</button></div><div class="details">'+c.detail.map(function(x){return "• "+x}).join("<br>")+'<br>• 찾아가는 교육 / 총 6시간<br>• 주말 1일 또는 업무 후 2시간×3일</div>';d.querySelector(".detailBtn").onclick=function(){d.querySelector(".details").classList.toggle("show")};d.querySelector(".pickBtn").onclick=function(){pick(id)};box.appendChild(d)})})}
+function pick(id){selected=id;custom={};var c=courses[id];el("selName").textContent=c.name+" · "+c.title;el("selCode").textContent=id;el("contactCourse").textContent=c.name+" · "+id;el("selected").classList.add("show");el("group").classList.remove("hidden");el("join").classList.remove("hidden");el("floatCourse").textContent=c.name+" · "+id;el("floatContact").innerHTML="담당자: 10월 협의 후 확정<br>유선: 10월 협의 후 확정";renderCustom();updateGroup();renderJoin();el("selected").scrollIntoView({behavior:"smooth"})}
+function consult(type){if(!selected){alert("프로그램을 먼저 선택해 주세요.");return}alert(courses[selected].name+" · "+selected+"\n"+type+" 상담\n담당자: 10월 협의 후 확정\n유선: 10월 협의 후 확정")}
+function renderCustom(){var c=courses[selected],box=el("custom");var labels={focus:"이번 교육에서 가장 강화할 부분",aud:"주요 참여자",pain:"현재 현장 고민",method:"선호 학습방식",out:"교육 후 남기고 싶은 결과"};box.innerHTML='<div class="notice gray"><b>과정 대표금고만 입력</b> · 모두 클릭식입니다. 업체가 승인된 과정 범위 안에서 사례·실습·강사 준비를 조정하는 참고정보로 사용합니다.</div>';Object.keys(c.custom).forEach(function(k){var h=document.createElement("h4");h.textContent=labels[k];box.appendChild(h);var div=document.createElement("div");div.className="chips";c.custom[k].forEach(function(v){var b=document.createElement("button");b.className="chip";b.textContent=v;b.onclick=function(){custom[k]=custom[k]||[];var i=custom[k].indexOf(v);if(i>=0)custom[k].splice(i,1);else custom[k].push(v);b.classList.toggle("on")};div.appendChild(b)});box.appendChild(div)})}
+document.querySelectorAll("[data-mode]").forEach(function(b){b.onclick=function(){mode=this.dataset.mode;document.querySelectorAll(".mode").forEach(function(x){x.classList.toggle("on",x===b)});el("councilPanel").classList.toggle("show",mode==="council");el("nearbyPanel").classList.toggle("show",mode==="nearby");if(mode==="council"&&!council.length){council.push({name:"",people:0});renderMembers("council")}if(mode==="nearby"&&!nearby.length){nearby.push({name:"",people:0});renderMembers("nearby")}updateGroup()}});
+function renderMembers(kind){var arr=kind==="council"?council:nearby,box=el(kind==="council"?"councilMembers":"nearbyMembers");box.innerHTML="";arr.forEach(function(p,i){var r=document.createElement("div");r.className="member";r.innerHTML='<input placeholder="금고명" value="'+(p.name||"")+'"><input type="number" min="0" placeholder="인원" value="'+(p.people||"")+'"><button>×</button>';var ins=r.querySelectorAll("input");ins[0].oninput=function(){arr[i].name=this.value};ins[1].oninput=function(){arr[i].people=Number(this.value)||0;updateGroup()};r.querySelector("button").onclick=function(){arr.splice(i,1);renderMembers(kind);updateGroup()};box.appendChild(r)})}
+el("addCouncil").onclick=function(){council.push({name:"",people:0});renderMembers("council")};el("addNearby").onclick=function(){nearby.push({name:"",people:0});renderMembers("nearby")};
+function active(){return mode==="council"?council:mode==="nearby"?nearby:[]}function total(){return (Number(el("own").value)||0)+active().reduce(function(s,x){return s+(Number(x.people)||0)},0)}
+function updateGroup(){var own=Number(el("own").value)||0;if(own>=MIN){mode=null;el("groupLock").classList.remove("hidden");el("groupBody").classList.add("hidden")}else{el("groupLock").classList.add("hidden");el("groupBody").classList.remove("hidden")}var t=own>=MIN?own:total();el("total").textContent=t+"명";el("bar").style.width=Math.min(100,t/MIN*100)+"%";el("need").textContent=t<MIN?"개설까지 "+(MIN-t)+"명 더 필요":"개설기준 충족";el("groupBadge").textContent=t>=MIN?"개설기준 충족":t+"/30명";el("groupMsg").className="notice "+(t>=MIN?"good":"yellow");el("groupMsg").textContent=t>=MIN?"총 "+t+"명으로 개설기준을 충족했습니다.":own<MIN&&!mode?"협의회 단위 또는 인근 금고 공동구성 방식을 선택해 주세요.":"현재 "+t+"명입니다.";var ok=t>=MIN&&(own>=MIN||mode);el("saveSession").disabled=!ok;el("toCost").disabled=!ok;el("costPeople").value=own;calc()}
+["own","mgName"].forEach(function(id){el(id).oninput=updateGroup});
+el("saveSession").onclick=function(){if(!selected||total()<30)return;var own=Number(el("own").value)||0;var label=own>=30?"우리 금고 단독":mode==="council"?(el("councilName").value||"협의회 단위"):"인근 금고 공동";var s={course:selected,code:selected+"-"+String(Math.floor(Math.random()*90)+10),host:el("mgName").value||"과정 대표금고",people:own>=30?own:total(),group:label,open:true,custom:JSON.parse(JSON.stringify(custom))};sessions.push(s);renderJoin();alert("참여 회차가 만들어졌습니다.\n"+s.code)}
+function renderJoin(){var box=el("joinList");box.innerHTML="";sessions.forEach(function(s){var c=courses[s.course],d=document.createElement("div");d.className="join-item";var tags=[];Object.keys(s.custom||{}).forEach(function(k){(s.custom[k]||[]).forEach(function(v){if(tags.length<4)tags.push(v)})});d.innerHTML='<div><strong>'+c.name+' · '+s.code+'</strong><div>'+c.title+'</div><div>'+tags.map(function(x){return '<span class="tag">'+x+'</span>'}).join("")+'</div></div><div>'+s.group+'<br>'+s.host+'</div><div>'+s.people+'명</div><button class="btn primary small">함께 참여</button>';d.querySelector("button").onclick=function(){alert("참여금고는 이 과정의 교육의도를 확인한 뒤 자기 금고 인원·담당자만 입력하는 구조로 연결됩니다.")};box.appendChild(d)})}
+function calc(){var p=Number(el("costPeople").value)||0,fee=Number(el("unitFee").value)||0,rate=Number(el("supportRate").value)||0,cap=Number(el("supportCap").value)||0,gross=p*fee,support=gross*rate/100;if(cap>0)support=Math.min(support,cap);var h=Number(el("hourly").value)||0,m=Number(el("multiplier").value)||1,labor=p*h*6*m;var oth=(Number(el("travel").value)||0)+(Number(el("meal").value)||0)+(Number(el("venueCost").value)||0)+(Number(el("other").value)||0),totalCost=Math.max(0,gross-support)+labor+oth;el("gross").textContent=won(gross);el("support").textContent=won(support);el("labor").textContent=won(labor);el("realTotal").textContent=won(totalCost);var sch=el("schedule").value;if(sch==="after"){el("laborText").innerHTML="<b>업무 후 2시간×3일</b><ul><li>교육시간이 근로시간이고 소정근로시간을 초과하면 연장근로수당 검토</li><li>현재 계산기는 6시간 × 가산배수로 시산</li></ul>"}else{el("laborText").innerHTML="<b>주말 1일 6시간</b><ul><li>해당일이 휴일이면 휴일근로수당 검토</li><li>휴일이 아니어도 주 40시간 초과 등 실제 편성에 따라 연장근로 검토</li></ul>"}}["costPeople","unitFee","supportRate","supportCap","hourly","multiplier","travel","meal","venueCost","other"].forEach(function(id){el(id).oninput=calc});el("schedule").onchange=calc;calc();
+el("toCost").onclick=function(){go("cost");el("elig").classList.remove("hidden")}
+function makeReport(){if(!selected){alert("프로그램을 먼저 선택하세요.");return}var p=Number(el("costPeople").value)||0,fee=Number(el("unitFee").value)||0,rate=Number(el("supportRate").value)||0,gross=p*fee,support=gross*rate/100,cap=Number(el("supportCap").value)||0;if(cap>0)support=Math.min(support,cap);var labor=p*(Number(el("hourly").value)||0)*6*(Number(el("multiplier").value)||1),other=(Number(el("travel").value)||0)+(Number(el("meal").value)||0)+(Number(el("venueCost").value)||0)+(Number(el("other").value)||0),real=Math.max(0,gross-support)+labor+other;el("report").innerHTML='<h1>직원교육 참여 검토보고(안)</h1><table><tr><th>금고명</th><td>'+(el("mgName").value||"미입력")+'</td><th>프로그램</th><td>'+courses[selected].name+' · '+selected+'</td></tr><tr><th>참여인원</th><td>'+p+'명</td><th>운영방식</th><td>'+el("schedule").options[el("schedule").selectedIndex].text+'</td></tr><tr><th>희망일</th><td>'+((el("date").value)||"미정")+'</td><th>장소</th><td>'+((el("place").value)||"미정")+'</td></tr></table><h2>비용 검토</h2><table><tr><th>선납 교육비</th><td>'+won(gross)+'</td><th>예상 지원액</th><td>'+won(support)+'</td></tr><tr><th>교육비 순부담</th><td>'+won(Math.max(0,gross-support))+'</td><th>예상 인건비</th><td>'+won(labor)+'</td></tr><tr><th>기타 실비</th><td>'+won(other)+'</td><th>지원 후 예상 총 실비</th><td><b>'+won(real)+'</b></td></tr></table><p><b>노무 확인:</b> 교육시간이 근로시간에 해당하는 경우 실제 근무편성에 따라 연장·휴일근로수당 등을 확인해야 함.</p>';el("reportSection").classList.remove("hidden");go("reportSection")}
+</script>
+</body></html>
